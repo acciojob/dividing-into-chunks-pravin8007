@@ -9,15 +9,17 @@ const divide = (arr, n) => {
     let currentSum = 0;
 
     for (let num of arr) {
-		if(num == 0){
+		if (currentSum + num <= n) {
+            currentSubarray.push(num);
+            currentSum += num;
+        }
+		else if(num == 0){
+			 currentSubarray.push(num);
 			 result.push(currentSubarray);
             currentSubarray = [num];
             currentSum = num;
 		}
-        else if (currentSum + num <= n) {
-            currentSubarray.push(num);
-            currentSum += num;
-        } else {
+          else {
             result.push(currentSubarray);
             currentSubarray = [num];
             currentSum = num;
